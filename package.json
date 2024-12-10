@@ -1,0 +1,102 @@
+{
+    "name": "hover-reader",
+    "displayName": "Hover Reader",
+    "description": "A VS Code extension for reading text content in hover tooltips",
+    "version": "0.0.1",
+    "publisher": "temp-publisher",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/temp/hover-reader"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "title": "Hover Reader",
+            "properties": {
+                "hoverReader.textFilePath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "TXT 文件的路径（绝对路径或相对于工作区的路径）"
+                },
+                "hoverReader.linesPerPage": {
+                    "type": "number",
+                    "default": 2,
+                    "description": "每页显示的行数"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "hover-reader.toggle",
+                "title": "Hover Reader: Toggle"
+            },
+            {
+                "command": "hover-reader.forward",
+                "title": "Hover Reader: Set Forward Direction"
+            },
+            {
+                "command": "hover-reader.backward",
+                "title": "Hover Reader: Set Backward Direction"
+            },
+            {
+                "command": "hover-reader.reset",
+                "title": "Hover Reader: Reset to First Page"
+            },
+            {
+                "command": "hover-reader.selectFile",
+                "title": "Hover Reader: Select Text File"
+            },
+            {
+                "command": "hover-reader.gotoPage",
+                "title": "Hover Reader: Go to Page"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "hover-reader.toggle",
+                "key": "ctrl+alt+/",
+                "mac": "cmd+alt+/"
+            },
+            {
+                "command": "hover-reader.forward",
+                "key": "ctrl+alt+.",
+                "mac": "cmd+alt+."
+            },
+            {
+                "command": "hover-reader.backward",
+                "key": "ctrl+alt+,",
+                "mac": "cmd+alt+,"
+            },
+            {
+                "command": "hover-reader.reset",
+                "key": "ctrl+alt+0",
+                "mac": "cmd+alt+0"
+            },
+            {
+                "command": "hover-reader.gotoPage",
+                "key": "ctrl+alt+g",
+                "mac": "cmd+alt+g"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile"
+    },
+    "devDependencies": {
+        "@types/node": "^16.11.7",
+        "@types/vscode": "^1.60.0",
+        "typescript": "^4.5.5"
+    }
+} 
